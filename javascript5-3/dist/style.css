@@ -1,0 +1,41 @@
+html::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  font-family: monospace;
+  opacity: 0.6;
+  background: rebeccapurple;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.counter-section,
+.calculator-section {
+  margin: 12px 0;
+}
+
+.counter-section button,
+.calculator-section button {
+  padding: 4px 12px;
+  margin-left: 8px;
+  border-radius: 4px;
+  border: none;
+  background: rebeccapurple;
+  color: white;
+  cursor: pointer;
+}
+
+.counter-section .count {
+  margin: 0 8px;
+  font-weight: bold;
+}
+
+.calculator-section input {
+  padding: 4px 8px;
+  margin-right: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
