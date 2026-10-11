@@ -1,0 +1,27 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@3.2.37/dist/vue.global.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen</title>
+  </head>
+  <body>
+<div id="app">
+ <div class="note">
+  <h3 class="title">{{notes[0].title}}</h3>  
+  <p class="content">{{notes[0].content}}</p>
+ </div>
+ <div class="note" >
+ <h3 class="title">{{notes[1].title}}</h3>
+ <p class="content">{{notes[1].content}}</p>  
+ </div>
+ <div class="note" >
+ <h3 class="title">{{notes[2].title}}</h3>
+ <p class="content">{{notes[2].content}}</p>  
+ </div>  
+</div>
+    <script src="./script.js"></script>
+  </body>
+</html>
