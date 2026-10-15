@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen</title>
+  </head>
+  <body>
+   <!--Vue應用掛載點--> 
+<div id="app">
+   <!--輸入區域-->
+  <div class="form-container">
+    <!--標題輸入,並用v-model綁定titleInput,html用v-model,js再在data(){設定變數=""就綁定了}-->
+    <input type="text" placeholder="請輸入記事標題" v-model="titleInput">
+    <!--文字輸入,v-model綁定contentInput-->
+    <textarea placeholder="請輸入記事內容" v-model="contentInput"></textarea>
+    <!--顏色選擇,v-model綁定selectedColor-->
+    <select v-model="selectedColor">
+    <!--第一項value設定為""然後又使用selected導致我沒選擇的話會觸發js3個or的if判斷式-->
+    <!--disable是禁用 , selected是預設選中 , hidden是隱藏 不顯示在下拉列表-->  
+     <option value="" disabled selected hidden>請選擇顏色</option>
+     <option value="#fc6565">紅色</option>
+     <option value="#638aff">藍色</option>
+     <option value="lightgray">灰色</option>
+    </select>
+    <!--@ =v-on相當於事件監視器-->
+    <button @click="addNote">新增</button>
+  </div>  
+  <!--v-for相當於forEach需要取得notes的資料及位置[0.1.2]分別放入note -->
+  <!--:style的部分是改顏色 背景色=note.color-->
+  <div v-for="(note, index) in notes" class="note" :style="{ backgroundColor: note.color }">
+    <!--取data(){note.title}的值然後重新渲染-->
+    <h3>{{ note.title }}</h3>
+    <!--取data(){note.content}的值然後重新渲染-->
+    <p>{{ note.content }}</p>
+    <!--@click 觸發 delNote，傳入 v-for 的 index（第 1 張是 0，第 2 張是 1...）-->
+    <!-- delNote執行splice(index,1)第3張卡片會傳入index=2然後刪除一張-->
+    <button @click="delNote(index)">刪除</button>
+  </div>
+</div>
+<script src="https://unpkg.com/vue@3.2.37/dist/vue.global.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
